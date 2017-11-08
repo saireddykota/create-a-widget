@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{ MService} from './m.service';
+import { FormsModule } from '@angular/forms';
 import{Http,Response}from '@angular/http';
 import'rxjs/add/operator/map';
 
@@ -9,14 +10,13 @@ import'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  X:number;
   
-
-
   
 
 
   constructor(private newService:MService){}
+ZoneDataName ='';
+
   // fetchData(){
   //   return this.http.get("src/data/info.json").map(
   //   (response)=>response.json()
@@ -26,10 +26,13 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
    this.newService.fetchData(); 
+   this.newService.fetchArrayData();
+   this.newService.fetchZoneData();
+   this.newService.function(); 
+
+  //  
  }
 
-calculator(zone1:number, zone2: number)
-{
-  this.X = zone1*zone2;
-}
+
+
 }

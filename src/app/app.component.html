@@ -12,26 +12,26 @@
 
 <label for="job-adminemail">Where are you going?</label>
 <select id="widget" name="selectbasic" class="form-control input-md" aria-placeholder="Experience">
-  <option value="None" disabled="disabled" selected="selected"></option>
+  <!-- <option value="None" disabled="disabled" selected="selected"></option>
   <option value="1" selected="selected">ZONE 1</option>
   <option value="2" selected="selected">ZONE 2</option>
   <option value="3" selected="selected">ZONE 3</option>
   <option value="4" selected="selected">ZONE 4</option>
   <option value="5" selected="selected">ZONE 5</option>
   <option value="6" selected="selected">ZONE 6</option>
-  
+   --><input required type ="text" *ngIf = "Data" [(ngModel)]= "Data.fetchZoneData">
 </select><br>
 
 
 <label for="">When are you riding?</label>
 <select id="widget" name="selectbasic" class="form-control input-md" aria-placeholder="Experience">
-  <option value="None" disabled="disabled" selected="selected"></option>
+  <!-- <option value="None" disabled="disabled" selected="selected"></option>
   <option value="1" selected="selected">anytime</option>
   <option value="2" selected="selected">weekday</option>
   <option value="3" selected="selected">evening_weekend</option>
   <option value="4" selected="selected">advance_purchase</option>
   <option value="5" selected="selected">onboard_purchase</option>
-  
+   --><input required type ="text" *ngIf = "Data" [(ngModel)]= "Data.fetchInfoData">
 </select><br>
 
 <label for="">Where will you Purchase the Fare?</label>
@@ -40,19 +40,16 @@
   <input type="radio" name="gender" value="male"> Male<br>
   <input type="radio" name="gender" value="female"> Female<br>
   </form>
-
+  
 
 
 <label for="">How many rides will you need?</label>
-<input required type="text" class="form-control" id="job-skillsneed"  name="Skills Need" placeholder=""><br>
+<input required type="text" class="form-control"  name="Skills Need"  placeholder=""><br>
+
+<h4>Data</h4>
+
 
 
 <h1>Total</h1>
-<!-- <input type="text" *ngIf="Data" [(ngModel)]="Data.name"> -->
+<input required type ="text" *ngIf = "Data" [(ngModel)]= "Data.fetchArrayData">
 </div>
-
-<!-- "anytime": "Valid anytime",
-"weekday": "Valid Monday through Friday, 4:00 a.m. - 7:00 p.m. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station",
-"evening_weekend": "Valid weekdays after 7:00 p.m.; all day Saturday, Sunday and major holidays. On trains arriving or departing 30th Street Station, Suburban and Jefferson Station",
-"advance_purchase": "Tickets available for purchase at all SEPTA offices.",
-"onboard_purchase": "Tickets available for purchase from a train conductor aboard SEPTA regional rail trains." -->

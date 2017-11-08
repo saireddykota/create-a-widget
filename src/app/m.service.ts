@@ -11,14 +11,46 @@ export class MService {
 
   fetchData(){
       return this.http.get('assets/info.json')
-      .map((response)=>response.json().subscribe(
-           (data)=>console.log(data))
-  )
+      .map((response)=>response.json()
+      ).subscribe(
+        (data)=>console.log(data)
+       )
     
-//   this.http.load().then((data) => {
-//      console.log("what is in the data ", data);
-//    this.patdata= data;
-//  });
-
   }
+
+
+  fetchArrayData(){
+    return this.http.get('assets/info.json')
+    .map((response)=>response.json()
+    ).subscribe(
+      (data)=>console.log(data.info)
+     )
+  
+}
+
+// cityName='';
+
+
+fetchZoneData(){
+  return this.http.get('assets/info.json')
+  .map((response)=>response.json()
+  ).subscribe(
+    (data)=>console.log(data.zones)
+   )
+
+}
+
+function(){return this.http.get('assets/info.json')
+  .map((response)=>response.json()
+).subscribe(
+  (data)=>console.log(data.zones,data.fares.purchase,data.fares.price * data.fares.trips)
+
+//data.zones.zone,data.zones.fares.type, data.zones.fares.purchase, 
+//data.zones.fares.price, data.zones.fares.trips
+//
+
+)
+
+}
+
 }
