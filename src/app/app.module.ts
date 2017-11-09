@@ -7,7 +7,7 @@ import{MService} from'./m.service';
 
 @NgModule({
   declarations: [ AppComponent],
-  imports: [BrowserModule, HttpModule, FormsModule],
+  imports: [BrowserModule,FormsModule, HttpModule],
   providers: [MService],
   bootstrap: [AppComponent]
 })

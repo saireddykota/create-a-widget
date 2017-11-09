@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import{Http,Response, Headers, RequestOptions}from '@angular/http';
 import'rxjs/add/operator/map';
 
@@ -9,12 +10,10 @@ export class MService {
   constructor(private http:Http) { }
 
 
-  fetchData(){
+  fetchData():Observable<any>{
       return this.http.get('assets/info.json')
       .map((response)=>response.json()
-      ).subscribe(
-        (data)=>console.log(data)
-       )
+      );
     
   }
 
