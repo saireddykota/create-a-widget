@@ -18,7 +18,7 @@
 
 <label for="">When are you riding?</label>
 <select id="widget" name="selectbasic" [(ngModel)]="objfareServiceForm.ridingPeriod" class="form-control input-md" aria-placeholder="Experience">
-  <option *ngFor="let period of ridingPeriods" [value]="period.value">{{period.name}}</option>
+  <option *ngFor="let period of ridingPeriods" [value]="period.value" [selected]="riding == period.value">{{period.name}}</option>
    <!--<input required type ="text" *ngIf = "Data" [(ngModel)]= "Data.fetchInfoData">-->
 </select><br>
 

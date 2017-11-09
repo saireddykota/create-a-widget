@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor(private fareService: MService) { }
   objfareServiceForm: fareServicEntity = new fareServicEntity();
   faresData: any;
+  riding: any;
   IsAllSelected: boolean = false;
   total: number;
   ridingPeriods = [{ name: "Weekdays", value: "weekday" }, { name: "Weekend Evening", value: "evening_weekend" }, { name: "AnyTime", value: "anytime" }];
@@ -22,18 +23,15 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.fareService.fetchData().subscribe(data => {
       this.faresData = data;
+      this.objfareServiceForm.ridingPeriod = this.ridingPeriods[0].value;
+       this.objfareServiceForm.zoneName = data.zones[0].name;
     });
 
   }
-
-
   onCalculate() {
-    console.log(this.objfareServiceForm);
     if (this.objfareServiceForm.numberOfRide == undefined ||
       this.objfareServiceForm.purchaseType == "" || this.objfareServiceForm.ridingPeriod == "" ||
       this.objfareServiceForm.zoneName == "") {
-
-
       this.IsAllSelected = true;
     }
     else {
@@ -51,11 +49,9 @@ export class AppComponent implements OnInit {
           })
         }
       });
-
       if (selectedFareItem.trips == 1) {
         this.total = this.objfareServiceForm.numberOfRide * selectedFareItem.price;
       }
-
       this.IsAllSelected = false;
     }
   }
